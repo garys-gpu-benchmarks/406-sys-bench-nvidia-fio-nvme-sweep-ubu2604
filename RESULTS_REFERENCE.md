@@ -3,23 +3,23 @@
 **Main goal:** Measure fio IOPS, bandwidth, and latency across a yaml sweep  
 **Tools:** Run the system fio executable with --output-format=json and libaio against yaml filename
 
-Reference results measured by the maintainer on the system shown in each section (generator TEMPLATE_00_141 · recorded 2026-11-14). Your own runs write `results/RESULTS_ACTUAL.md` in the same format.
+Reference results measured by the maintainer on the system shown in each section (generator TEMPLATE_00_142 · recorded 2026-11-16). Your own runs write `results/RESULTS_ACTUAL.md` in the same format.
 
 > Smoke runs use deliberately small sizes. They check that the workload installs and runs end to end; their numbers are not performance results. Baseline and extended are.
 
 <!-- profile:smoke -->
 ## smoke
 
-- **System:** 1× NVIDIA H100 PCIe (81559 MiB) · Intel(R) Xeon(R) Platinum 8352Y CPU @ 2.20GHz · Ubuntu 26.04.1 LTS · kernel 6.8.0-138-generic · driver 595.91.07
-- **Run:** 2026-11-14T10:57:15Z · status **PASS** (exit 0)
-- **Time (mm:ss):** setup 01:08 · benchmark 00:14 · whole run 01:35
-- **Source:** run 406_20261114_105715
+- **System:** 1× NVIDIA H100 NVL (95830 MiB) · AMD EPYC 9374F 32-Core Processor · Ubuntu 26.04.1 LTS · kernel 6.8.0-138-generic · driver 595.91.07
+- **Run:** 2026-11-16T10:58:56Z · status **PASS** (exit 0)
+- **Time (mm:ss):** setup 00:32 · benchmark 00:12 · whole run 00:50
+- **Source:** run 406_20261116_105856
 - **Command:** `bash run_benchmark.sh --smoke --io-engine libaio --filename data/fio_target.bin --direct 1 --rw randread --block-size 4k --size 64m --io-depth 1,8 --num-jobs 4 --warmup-duration-sec 0 --runtime 5`
 
 | # | Metric | Result |
 |---|---|---|
-| 1 | IOPS mean at first sweep case (iops_mean) | 30290.541892 |
-| 2 | Bandwidth at first sweep case, MB/s (bandwidth_mb_s) | 124.070059 |
-| 3 | Completion latency p50 at first sweep case, us (clat_p50_us) | 134.144 |
-| 4 | IOPS, 4k random read, iodepth 8 x 4 jobs = 32 in flight, every profile (iops_mean__randread_4k_qd8) | 239763.447311 |
+| 1 | IOPS mean at first sweep case (iops_mean) | 44975.804839 |
+| 2 | Bandwidth at first sweep case, MB/s (bandwidth_mb_s) | 184.220896 |
+| 3 | Completion latency p50 at first sweep case, us (clat_p50_us) | 73.216 |
+| 4 | IOPS, 4k random read, iodepth 8 x 4 jobs = 32 in flight, every profile (iops_mean__randread_4k_qd8) | 379328.134373 |
 <!-- /profile:smoke -->
